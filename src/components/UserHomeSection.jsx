@@ -1,6 +1,6 @@
-import { Outlet, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { AdminHomeSection } from "./AdminHomeSection";
 
 const API_URL = "https://jsd5-mock-backend.onrender.com/members";
 
@@ -28,20 +28,24 @@ const UserHomeSection = () => {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <table className="min-w-7xl">
+        <table className="mx-auto min-w-7xl">
           <thead>
-            <tr className="bg-gray-200">
-              <th className="p-2 border">Name</th>
-              <th className="p-2 border">Last Name</th>
-              <th className="p-2 border">Position</th>
+            <tr className="bg-gray-300">
+              <th className="p-2 border-2 border-slate-500">Name</th>
+              <th className="p-2 border-2 border-slate-500">Last Name</th>
+              <th className="p-2 border-2 border-slate-500">Position</th>
             </tr>
           </thead>
           <tbody>
             {users.map((member) => (
-              <tr key={member.id} className="bg-gray-100">
-                <td className="p-2 border">{member.name}</td>
-                <td className="p-2 border">{member.lastname}</td>
-                <td className="p-2 border">{member.position}</td>
+              <tr key={member.id} className="bg-white text-center">
+                <td className="p-2 border-2 border-slate-500">{member.name}</td>
+                <td className="p-2 border-2 border-slate-500">
+                  {member.lastname}
+                </td>
+                <td className="p-2 border-2 border-slate-500">
+                  {member.position}
+                </td>
               </tr>
             ))}
           </tbody>
